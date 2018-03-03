@@ -46,6 +46,9 @@ namespace Pathoschild.Stardew.Automate
             // read config
             this.Config = helper.ReadConfig<ModConfig>();
 
+            // set which flooring tiles will act as machine pipes
+            this.Factory.FlooringPipes = this.Config.FlooringPipes;
+
             // hook events
             SaveEvents.AfterLoad += this.SaveEvents_AfterLoad;
             LocationEvents.CurrentLocationChanged += this.LocationEvents_CurrentLocationChanged;

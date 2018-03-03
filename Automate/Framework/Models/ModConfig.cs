@@ -19,6 +19,22 @@ namespace Pathoschild.Stardew.Automate.Framework.Models
         /// <summary>The control bindings.</summary>
         public ModConfigControls Controls { get; set; } = new ModConfigControls();
 
+        /// <summary>
+        /// Floooring IDs to use to act as a pipe between machines
+        /// Floor types:
+        ///     Wood Floor = 0;
+        ///     Stone Floor = 1;
+        ///     Weathered Floor = 2;
+        ///     Crystal Floor = 3;
+        ///     Straw Floor = 4;
+        ///     Gravel Path = 5;
+        ///     Wood Path = 6;
+        ///     Crystal Path = 7;
+        ///     Cobblestone Path = 8;
+        ///     Stepping Stone Path = 9;
+        /// </summary>
+        public int[] FlooringPipes { get; set; } = { 6 };
+
 
         /*********
         ** Nested models

@@ -25,7 +25,7 @@ namespace Pathoschild.Stardew.Automate.Framework
         *********/
         /// <summary>The tile area on the farm matching the shipping bin.</summary>
         private readonly Rectangle ShippingBinArea = new Rectangle(71, 14, 2, 1);
-
+        public int[] FlooringPipes { get; set; } = { };
 
         /*********
         ** Public methods
@@ -178,6 +178,7 @@ namespace Pathoschild.Stardew.Automate.Framework
         /// <param name="reflection">Simplifies access to private game code.</param>
         private IMachine GetMachine(SObject obj, GameLocation location, Vector2 tile, IReflectionHelper reflection)
         {
+
             if (obj.name == "Bee House")
                 return new BeeHouseMachine(obj, location, tile);
             if (obj is Cask cask)
@@ -237,6 +238,8 @@ namespace Pathoschild.Stardew.Automate.Framework
         {
             if (feature is FruitTree fruitTree)
                 return new FruitTreeMachine(fruitTree);
+            if (feature is Flooring flooring && this.FlooringPipes.Contains(flooring.whichFloor) )
+                return new FlooringMachine(flooring);
             return null;
         }
 
